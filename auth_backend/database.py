@@ -1,6 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker,declarative_base
 
 # Database configuration(Currently using local postgres 4 app)
 SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://postgres:ChangeIt123%21@localhost:5432/user_db"
