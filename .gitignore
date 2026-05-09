@@ -216,3 +216,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+node_modules/
+zatri_frontend/node_modules/
+zatri_frontend/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
