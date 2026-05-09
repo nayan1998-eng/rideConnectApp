@@ -1,16 +1,21 @@
 {
-  "name": "zatri-frontend",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@vitejs/plugin-react": "latest",
-    "vite": "latest",
-    "react": "latest",
-    "react-dom": "latest"
-  },
-  "devDependencies": {}
+"name": "zatri-frontend",
+"version": "1.0.0",
+"homepage": "https://github.com/nayan1998-eng/rideConnectApp",
+"scripts": {
+"dev": "vite --host 0.0.0.0",
+"build": "vite build",
+"preview": "vite preview",
+"predeploy": "npm run build",
+"deploy": "gh-pages -d dist"
+},
+"dependencies": {
+"@vitejs/plugin-react": "latest",
+"react": "latest",
+"react-dom": "latest",
+"vite": "latest"
+},
+"devDependencies": {
+"gh-pages": "^6.3.0"
+}
 }
