@@ -1,27 +1,54 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
-#JSON request → RegisterRequest → validation → DB insert → User object → UserResponse → JSON response
-#This defines input for register API
+
 class RegisterRequest(BaseModel):
     name: str
     email: str
     phone: str
     password: str
 
-#JSON request → LoginRequest → validation → DB fetch → manual response
-#Input for login API
+
 class LoginRequest(BaseModel):
-    name: str
+    email: str
     password: str
 
-#This defines output format
+
 class UserResponse(BaseModel):
     id: int
     name: str
     email: str
     phone: str
 
-#Read data directly from object attributes instead of dict
-class Config:
-    orm_mode = True 
+    model_config = ConfigDict(from_attributes=True)
 
+
+class RideCreate(BaseModel):
+    source: str
+    destination: str
+    driver_name: str
+    driver_contact: str
+    vehicle_type: str
+    available_seats: int
+    price: float
+    travel_date: str
+    travel_time: str
+    pickup_point: str
+    drop_point: str
+
+
+class RideResponse(BaseModel):
+    id: int
+    source: str
+    destination: str
+    driver_name: str
+    driver_contact: str
+    vehicle_type: str
+    available_seats: int
+    price: float
+    travel_date: str
+    travel_time: str
+    pickup_point: str
+    drop_point: str
+    created_by_user_id: int
+
+    model_config = ConfigDict(from_attributes=True)

@@ -6,6 +6,11 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f4f7fb;
+  color: #111827;
+}
+
+button {
+  font-family: inherit;
 }
 
 .page {
@@ -75,7 +80,7 @@ input {
 
 input:focus {
   outline: none;
-  border-color: #1d4ed8;
+  border-color: #7c3aed;
 }
 
 .submit-btn {
@@ -99,6 +104,365 @@ input:focus {
   color: #111827;
 }
 
+.dashboard-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f2ecff;
+}
+
+.sidebar {
+  width: 86px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  padding: 22px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 4px 0 18px rgba(124, 58, 237, 0.08);
+  z-index: 100;
+}
+
+.sidebar-logo {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: white;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 46px;
+  flex-shrink: 0;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.sidebar-icon {
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 14px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.sidebar-icon:hover,
+.sidebar-icon.active {
+  background: #ede9fe;
+}
+
+.dashboard-main {
+  flex: 1;
+  margin-left: 86px;
+  padding: 34px;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.dashboard-title {
+  text-align: left;
+  color: #3b0764;
+  font-size: 34px;
+}
+
+.dashboard-subtitle {
+  margin: 8px 0 0;
+  color: #6b7280;
+}
+
+.primary-btn,
+.filter-btn,
+.clear-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 13px 18px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.primary-btn {
+  background: #a855f7;
+  color: white;
+}
+
+.filter-btn {
+  background: #7c3aed;
+  color: white;
+}
+
+.clear-btn {
+  background: #ffffff;
+  color: #4b5563;
+  border: 1px solid #ddd6fe;
+}
+
+.filter-section {
+  background: rgba(255, 255, 255, 0.76);
+  padding: 18px;
+  border-radius: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto auto;
+  gap: 14px;
+  box-shadow: 0 10px 28px rgba(124, 58, 237, 0.08);
+  margin-bottom: 24px;
+}
+
+.filter-section input {
+  background: white;
+  border: 1px solid #ddd6fe;
+}
+
+.add-ride-panel {
+  background: white;
+  padding: 24px;
+  border-radius: 22px;
+  box-shadow: 0 12px 28px rgba(76, 29, 149, 0.12);
+}
+
+.full-form-panel {
+  min-height: calc(100vh - 68px);
+}
+
+.add-ride-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.add-ride-header h2 {
+  margin: 0;
+  color: #3b0764;
+  font-size: 30px;
+}
+
+.add-ride-header p {
+  margin: 6px 0 0;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.close-btn {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  background: #ede9fe;
+  color: #581c87;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.add-ride-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.add-ride-form input {
+  background: #ffffff;
+  border: 1px solid #ddd6fe;
+  height: 56px;
+}
+
+.save-ride-btn {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+}
+
+.dashboard-message {
+  color: #991b1b;
+  background: #fee2e2;
+  padding: 12px 14px;
+  border-radius: 12px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.rides-section {
+  min-height: 440px;
+}
+
+.empty-state {
+  min-height: 430px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #6b7280;
+  text-align: center;
+  padding: 30px;
+}
+
+.empty-icon {
+  font-size: 72px;
+  margin-bottom: 12px;
+}
+
+.empty-state h3 {
+  color: #3b0764;
+  margin-bottom: 6px;
+}
+
+.rides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+.ride-card {
+  background: white;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 12px 28px rgba(76, 29, 149, 0.12);
+}
+
+.ride-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.ride-route-icon {
+  width: 48px;
+  height: 48px;
+  background: #ede9fe;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.ride-status {
+  background: #dcfce7;
+  color: #166534;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.ride-card h3 {
+  margin: 0 0 16px;
+  color: #3b0764;
+  font-size: 20px;
+}
+
+.ride-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ride-info p {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.ride-info strong {
+  color: #111827;
+  text-align: right;
+}
+
+.book-btn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #7c3aed;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.book-btn:hover,
+.primary-btn:hover,
+.filter-btn:hover {
+  background: #6d28d9;
+}
+
+@media (max-width: 900px) {
+  .add-ride-form {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .dashboard-page {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: row;
+    justify-content: center;
+    gap: 14px;
+    padding: 12px;
+  }
+
+  .sidebar-logo {
+    margin-bottom: 0;
+  }
+
+  .sidebar-menu {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .dashboard-main {
+    margin-left: 0;
+    padding: 100px 20px 20px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .add-ride-form {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 480px) {
   .card {
     padding: 22px;
@@ -106,5 +470,13 @@ input:focus {
 
   h1 {
     font-size: 32px;
+  }
+
+  .dashboard-title {
+    font-size: 28px;
+  }
+
+  .rides-grid {
+    grid-template-columns: 1fr;
   }
 }
