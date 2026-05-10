@@ -1,6 +1,5 @@
 import secrets
 from datetime import datetime, timedelta
-
 from auth import get_password_hash, verify_password
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
@@ -10,10 +9,11 @@ from fastapi.middleware.cors import CORSMiddleware
 
 import model
 import schema
-from database import get_db
-
+from database import get_db, Base, engine
 
 app = FastAPI()
+
+model.Base.metadata.create_all(bind=model.database.engine)
 
 app.add_middleware(
     CORSMiddleware,
