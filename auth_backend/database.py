@@ -1,19 +1,29 @@
+import os
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker,declarative_base
+from sqlalchemy.orm import sessionmaker, declarative_base
 
-# Database configuration(Currently using local postgres 4 app)
-SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://postgres:ChangeIt123%21@localhost:5432/appUserDB"
+SQLALCHEMY_DATABASE_URL = os.getenv(
+    "DATABASE_URL",
+    "postgresql+psycopg2://postgres:ChangeIt123%21@localhost:5432/appUserDB"
+)
 
-#database engine to create connection to the database
+if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
+    SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace(
+        "postgres://",
+        "postgresql://",
+        1
+    )
+
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
-#help to create session to interact with the database
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+SessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine
+)
 
-#base class for create tables in class
 Base = declarative_base()
 
-# Dependency to get db session for each request and close it after the request is done
 def get_db():
     db = SessionLocal()
     try:
